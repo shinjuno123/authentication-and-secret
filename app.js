@@ -1,5 +1,6 @@
 "use strict";
 
+require("dotenv").config();
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -11,7 +12,6 @@ const port = 3000;
 
 const app = express();
 
-
 mongoose.connect("mongodb://localhost:27017/userDB");
 
 const userSchema = new mongoose.Schema({
@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
     password : String
 })
 
-const secret = "Thisisourlittlesecret.";
-userSchema.plugin(encrypt, {secret:secret, encryptedFields:["password"]});
+
+userSchema.plugin(encrypt, {secret:process.env.SECRET, encryptedFields:["password"]});
 
 
 const User = mongoose.model("User", userSchema);
