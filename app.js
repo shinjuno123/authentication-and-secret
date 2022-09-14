@@ -37,7 +37,8 @@ mongoose.connect("mongodb://localhost:27017/userDB");
 const userSchema = new mongoose.Schema({
     email : String,
     password : String,
-    googleId : String
+    googleId : String,
+    facebookId : String
 });
 
 
@@ -108,10 +109,22 @@ app.get("/auth/google/secrets",
     res.redirect("/secrets");
 });
 
+app.get("/auth/facebook/secrets", 
+  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/secrets");
+});
+
 
 
 app.get("/login", function(req, res){
-    res.render("login");
+    console.log(req.isAuthenticated());
+    if(req.isAuthenticated()){
+        res.redirect("/secrets");
+    }else{
+        res.render("login");
+    }
 });
 
 app.get("/register", function(req, res){
