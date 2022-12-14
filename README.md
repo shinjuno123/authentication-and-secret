@@ -1,6 +1,17 @@
 # :lock: Authentication and Secret :lock:
 codes I learnt about authentication and saving secrets
 
+## Technique Stack
+
+- HTML5
+- CSS
+- EJS
+- Bootstrap
+- Node.js
+- Express.js
+- Passport.js
+- MongoDB(Mongoose)
+
 ## Overview
 
 In this project, I learnt the steps of security I can apply to many projects.
