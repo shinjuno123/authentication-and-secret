@@ -1,7 +1,7 @@
 # :lock: Authentication and Secret :lock:
 codes I learnt about authentication and saving secrets
 
-## Technique Stack
+## Technical Stack
 
 - HTML5
 - CSS
